@@ -4,7 +4,68 @@
 
 @layer base {
   :root {
-    /* Premium dark theme — Stripe / Linear / Vercel inspired */
+    /* Light — minimal, calm */
+    --background: 40 20% 99%;
+    --foreground: 230 25% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 230 25% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 25% 12%;
+
+    --primary: 24 90% 48%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 32 90% 52%;
+
+    --secondary: 230 15% 95%;
+    --secondary-foreground: 230 25% 20%;
+
+    --muted: 230 12% 92%;
+    --muted-foreground: 220 10% 38%;
+
+    --accent: 24 90% 48%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 48%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 230 14% 90%;
+    --input: 230 14% 90%;
+    --ring: 24 90% 48%;
+
+    --radius: 0.875rem;
+
+    --gradient-primary: linear-gradient(135deg, hsl(24 90% 48%), hsl(32 90% 52%));
+    --gradient-radial: radial-gradient(ellipse at top, hsl(24 90% 48% / 0.12), transparent 60%);
+    --gradient-text: linear-gradient(180deg, hsl(230 30% 14%), hsl(220 10% 38%));
+    --gradient-border: linear-gradient(135deg, hsl(0 0% 0% / 0.08), hsl(0 0% 0% / 0.02));
+
+    --glass-bg: hsl(0 0% 100% / 0.72);
+    --glass-border: hsl(0 0% 0% / 0.06);
+
+    --shadow-glow: 0 0 64px -12px hsl(24 90% 48% / 0.3);
+    --shadow-soft: 0 10px 40px -12px hsl(0 0% 0% / 0.12);
+    --shadow-card: 0 1px 0 0 hsl(0 0% 0% / 0.04) inset, 0 18px 50px -24px hsl(0 0% 0% / 0.08);
+
+    --mesh-stroke: 0 0% 0% / 0.04;
+
+    --body-glow-1: radial-gradient(ellipse 80% 50% at 50% -10%, hsl(24 90% 48% / 0.1), transparent);
+    --body-glow-2: radial-gradient(ellipse 60% 40% at 80% 30%, hsl(32 90% 52% / 0.05), transparent);
+
+    --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+
+    --sidebar-background: 0 0% 99%;
+    --sidebar-foreground: 230 25% 12%;
+    --sidebar-primary: 24 90% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 230 12% 94%;
+    --sidebar-accent-foreground: 230 25% 20%;
+    --sidebar-border: 230 14% 90%;
+    --sidebar-ring: 24 90% 48%;
+  }
+
+  .dark {
     --background: 230 25% 5%;
     --foreground: 210 20% 96%;
 
@@ -34,24 +95,22 @@
     --input: 230 18% 14%;
     --ring: 24 95% 58%;
 
-    --radius: 0.875rem;
-
-    /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(24 95% 58%), hsl(32 100% 65%));
     --gradient-radial: radial-gradient(ellipse at top, hsl(24 95% 58% / 0.18), transparent 60%);
     --gradient-text: linear-gradient(180deg, hsl(0 0% 100%), hsl(220 15% 70%));
     --gradient-border: linear-gradient(135deg, hsl(0 0% 100% / 0.12), hsl(0 0% 100% / 0.02));
 
-    /* Glass */
     --glass-bg: hsl(230 22% 9% / 0.6);
     --glass-border: hsl(0 0% 100% / 0.08);
 
-    /* Shadows */
     --shadow-glow: 0 0 80px -10px hsl(24 95% 58% / 0.4);
     --shadow-soft: 0 10px 40px -15px hsl(0 0% 0% / 0.6);
     --shadow-card: 0 1px 0 0 hsl(0 0% 100% / 0.05) inset, 0 20px 50px -20px hsl(0 0% 0% / 0.5);
 
-    --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+    --mesh-stroke: 0 0% 100% / 0.04;
+
+    --body-glow-1: radial-gradient(ellipse 80% 50% at 50% -10%, hsl(24 95% 58% / 0.12), transparent);
+    --body-glow-2: radial-gradient(ellipse 60% 40% at 80% 30%, hsl(32 100% 65% / 0.06), transparent);
 
     --sidebar-background: 230 25% 5%;
     --sidebar-foreground: 210 20% 96%;
@@ -62,11 +121,6 @@
     --sidebar-border: 230 18% 14%;
     --sidebar-ring: 24 95% 58%;
   }
-
-  .dark {
-    --background: 230 25% 5%;
-    --foreground: 210 20% 96%;
-  }
 }
 
 @layer base {
@@ -74,16 +128,31 @@
     @apply border-border;
   }
 
+  /* One vertical scrollbar: scroll only on the body, not on html and body at once (Edge/Chrome) */
   html {
-    scroll-behavior: smooth;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
   }
 
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "ss01", "cv11";
-    background-image:
-      radial-gradient(ellipse 80% 50% at 50% -10%, hsl(24 95% 58% / 0.12), transparent),
-      radial-gradient(ellipse 60% 40% at 80% 30%, hsl(32 100% 65% / 0.06), transparent);
+    min-height: 100%;
+    height: 100%;
+    margin: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior-y: auto;
+    scroll-behavior: smooth;
+    background-color: hsl(var(--background));
+    background-image: var(--body-glow-1), var(--body-glow-2);
+  }
+
+  #root {
+    min-height: 100%;
+    /* Never become a second scrollport */
+    overflow: visible;
   }
 }
 
@@ -111,11 +180,20 @@
 
   .grid-bg {
     background-image:
-      linear-gradient(hsl(0 0% 100% / 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(0 0% 100% / 0.04) 1px, transparent 1px);
+      linear-gradient(hsl(var(--mesh-stroke)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--mesh-stroke)) 1px, transparent 1px);
     background-size: 56px 56px;
     mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 30%, transparent 80%);
     -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 30%, transparent 80%);
+  }
+
+  .bg-mesh-drift {
+    background-image:
+      linear-gradient(hsl(var(--mesh-stroke)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--mesh-stroke)) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 20%, black 0%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 20%, black 0%, transparent 70%);
   }
 
   .glow {
@@ -133,6 +211,10 @@
 }
 
 @layer utilities {
+  .hero-reveal {
+    opacity: 0;
+    will-change: opacity, transform;
+  }
   .animate-fade-in-up {
     animation: fade-in-up 0.8s var(--transition-smooth) both;
   }

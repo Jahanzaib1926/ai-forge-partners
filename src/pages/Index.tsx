@@ -1,3 +1,4 @@
+import LandingBackground from "@/components/landing/LandingBackground";
 import Navbar from "@/components/landing/Navbar";
 import Hero from "@/components/landing/Hero";
 import Trust from "@/components/landing/Trust";
@@ -10,7 +11,8 @@ import Footer from "@/components/landing/Footer";
 
 const Index = () => {
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="relative w-full min-h-0 bg-background text-foreground transition-colors duration-500">
+      <LandingBackground />
       <Navbar />
       <Hero />
       <Trust />

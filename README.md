@@ -1,3 +1,3 @@
-# Welcome to your Lovable project
+# MoraStack
 
-TODO: Document your project here
+Vite + React + TypeScript application.

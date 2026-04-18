@@ -1,19 +1,29 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en" class="dark" suppressHydrationWarning>
   <head>
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("morastack-theme") === "light") {
+            document.documentElement.classList.remove("dark");
+          } else {
+            document.documentElement.classList.add("dark");
+          }
+        } catch (_) {}
+      })();
+    </script>
     <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Stackforge — AI-first engineering partner for scalable systems</title>
+    <title>MoraStack — AI-first engineering partner for scalable systems</title>
     <meta name="description" content="We design, build, and scale high-performance AI-ready products for startups and enterprises. Senior engineering, clean architecture, real outcomes." />
-    <meta name="author" content="Stackforge" />
+    <meta name="author" content="MoraStack" />
 
-    <meta property="og:title" content="Stackforge — AI-first engineering partner" />
+    <meta property="og:title" content="MoraStack — AI-first engineering partner" />
     <meta property="og:description" content="Build scalable systems, not just apps." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta name="twitter:card" content="summary" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

@@ -1,4 +1,6 @@
+import { useRef } from "react";
 import { Code2, Server, Cloud, Brain, Palette, Users } from "lucide-react";
+import { useSectionEntrance } from "@/hooks/useSectionEntrance";
 
 const services = [
   { icon: Code2, title: "Full-stack development", desc: "Production-grade web and mobile apps built with modern, type-safe stacks." },
@@ -10,8 +12,10 @@ const services = [
 ];
 
 const Services = () => {
+  const ref = useRef<HTMLElement>(null);
+  useSectionEntrance(ref);
   return (
-    <section id="services" className="py-28 relative">
+    <section ref={ref} id="services" className="py-24 md:py-28 relative">
       <div className="container">
         <div className="max-w-2xl mb-16">
           <p className="text-sm text-primary mb-3">What we do</p>

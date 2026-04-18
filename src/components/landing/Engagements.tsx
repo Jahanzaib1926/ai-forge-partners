@@ -1,4 +1,6 @@
+import { useRef } from "react";
 import { Check } from "lucide-react";
+import { useSectionEntrance } from "@/hooks/useSectionEntrance";
 
 const models = [
   {
@@ -23,8 +25,10 @@ const models = [
 ];
 
 const Engagements = () => {
+  const ref = useRef<HTMLElement>(null);
+  useSectionEntrance(ref);
   return (
-    <section id="engagements" className="py-28">
+    <section ref={ref} id="engagements" className="py-24 md:py-28">
       <div className="container">
         <div className="max-w-2xl mb-16">
           <p className="text-sm text-primary mb-3">Engagement models</p>

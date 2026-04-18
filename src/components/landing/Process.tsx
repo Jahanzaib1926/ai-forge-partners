@@ -1,4 +1,6 @@
+import { useRef } from "react";
 import { Compass, Hammer, TrendingUp } from "lucide-react";
+import { useSectionEntrance } from "@/hooks/useSectionEntrance";
 
 const steps = [
   { icon: Compass, title: "Discover & plan", desc: "We map goals, constraints, and architecture before a line of code." },
@@ -7,8 +9,10 @@ const steps = [
 ];
 
 const Process = () => {
+  const ref = useRef<HTMLElement>(null);
+  useSectionEntrance(ref);
   return (
-    <section id="process" className="py-28">
+    <section ref={ref} id="process" className="py-24 md:py-28">
       <div className="container">
         <div className="max-w-2xl mb-16">
           <p className="text-sm text-primary mb-3">How we work</p>

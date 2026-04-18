@@ -1,4 +1,6 @@
+import { useRef } from "react";
 import { X, Check } from "lucide-react";
+import { useSectionEntrance } from "@/hooks/useSectionEntrance";
 
 const problems = [
   "Slow, brittle systems",
@@ -14,8 +16,10 @@ const solutions = [
 ];
 
 const ValueProp = () => {
+  const ref = useRef<HTMLElement>(null);
+  useSectionEntrance(ref);
   return (
-    <section className="py-28">
+    <section ref={ref} className="py-24 md:py-28">
       <div className="container">
         <div className="max-w-2xl mb-16">
           <p className="text-sm text-primary mb-3">Why teams switch to us</p>
